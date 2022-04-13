@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sütaş</title>
+	  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,500&amp;subset=latin-ext" rel="stylesheet">
+    <link href="css/select2.min.css" rel="stylesheet"/>
+	  <link href="css/material-dashboard.css" rel="stylesheet"/>
+	  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/animate.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/custom.js"></script>
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <img src="img/body.png" id="bg" alt="">
+    <!-- LOGO  -->
+    <div class="nav-header">
+      <div class="header-inner">
+        <a href="index.html" id="logo"></a>
+          <div class="login_profile">
+            <span class="d-md-down-none">Rıdvan Kahraman</span>
+            <img src="img/user.png">
+          </div>
+        </div>
+      </div>
+    <!--LOGO KAPANIŞ  -->
+
+    <!--MENU  -->
+    <div class="row row-top bounceInDown" style="animation-duration:1s;" ng-show="!isHome">
+
+      <div class="col-lg-2 col-md-12 col-sm-6 padding_col"></div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 padding_col">
+        <div class="card card-stats car-box">
+          <div class="card-header">
+            <i class="material-icons">description</i>
+          </div>
+          <div class="card-content">
+            <h1>Tahsilat İşlemleri</h1>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <div class="iconic-list">
+              <div class="iconic-list-item" ng-click="collection()">
+                <div class="img-content">
+                  <img src="img/bos.png">
+                </div>
+                <div class="text-content">
+                  <h5>Tahsilat Talepleri</h5>
+                  <h6>Talepler</h6>
+                </div>
+              </div>
+              <div class="iconic-list-item">
+                <div class="img-content">
+                  <img src="img/mater.png">
+                </div>
+                <div class="text-content">
+                  <h5>Tahsilat Raporları</h5>
+                  <h6>Raporlar</h6>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+
+       <div class="col-lg-4 col-md-6 col-sm-12 padding_col">
+         <div class="card card-stats car-box">
+           <div class="card-header">
+             <i class="material-icons">folder_shared</i>
+           </div>
+           <div class="card-content">
+             <h1>Müşteri</h1>
+           </div>
+           <div class="card-footer">
+             <div class="stats">
+               <div class="iconic-list">
+                 <div class="iconic-list-item" ng-click="customer_information()">
+                   <div class="img-content">
+                     <img src="img/boss.png">
+                   </div>
+                   <div class="text-content">
+                     <h5>Müşteri Bilgileri</h5>
+                     <h6>Bilgiler</h6>
+                   </div>
+                 </div>
+                 <div class="iconic-list-item">
+                    <div class="img-content">
+                      <img src="img/musteri.png">
+                    </div>
+                  <div class="text-content">
+                    <h5>Müşteri Ekstresi</h5>
+                    <h6>Ekstreleri</h6>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-12 col-sm-6 padding_col"></div>
+
+      </div>
+        <!--MENU Kapanış  -->
+
+        <!-- Müşteri Bilgileri -->
+      <div class="row row-top fadeIn" style="animation-duration:1s;" ng-show="customer">
+
+        <div class="col-lg-2 col-md-2 padding_col">
+            <button class="btn btn-back" ng-click="back('open')">
+              <span class="btn-label">
+                <i class="material-icons">keyboard_arrow_left</i>
+              </span>Geri<div class="ripple-container"></div>
+            </button>
+          </div>
+
+        <div class="col-lg-8 col-md-12 padding_col">
+           <div class="card">
+             <div class="card-header">
+               <div class="img-content png">
+                  <img src="img/boss.png">
+                </div>
+               <h4 class="title">Müşteri Bilgileri</h4>
+             </div>
+             <div class="card-content table-responsive">
+               <table class="table table-hover">
+                 <thead class="text-warning">
+                   <tr>
+                     <th>Müsteri Kodu</th>
+                     <th>Müsteri Adı</th>
+                     <th>Bakiye</th>
+                     <th>VGB Tutar</th>
+                     <th>Anlaşma Vadesi</th>
+                     <th>TOV</th>
+                     <th>Tahsilat Tipi</th>
+                     <th>VGB Gün</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>124552</td>
+                     <td>BY OTELL</td>
+                     <td>15.000</td>
+                     <td>1.500</td>
+                     <td>30 Gün</td>
+                     <td>42 Gün</td>
+                     <td>POS</td>
+                     <td>3.Gün</td>
+                   </tr>
+                 </tbody>
+               </table>
+               <button class="btn">
+                 Ekstre Görüntüle
+               </button>
+              </div>
+            </div>
+          </div>
+
+         <div class="col-lg-2 col-md-2 padding_col"></div>
+
+      </div>
+      <!-- Müşteri Bilgileri Kapanış -->
+
+      <!--Tahsilat Talepleri Tablosu  -->
+      <div class="row row-top fadeIn" style="animation-duration:1s;" ng-show="cust">
+
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Yönlendir</h4>
+              </div>
+              <div class="modal-body">
+                  <select class="js-example-basic-single" style="width:300px" name="state">
+                     <option value="RI">RIDVAN KAHRAMAN</option>
+                     <option value="BU">BUĞRA OKYAY</option>
+                     <option value="EB">EBUBEKİR TABAK</option>
+                     <option value="BU">BURAK SEVİNÇ</option>
+                     <option value="AH">AHMED MESUD BİLGİN</option>
+                     <option value="MU">MURAT ÇAKMAK</option>
+                     <option value="AL">Alabama</option>
+                     <option value="WY">Wyoming</option>
+                   </select>
+                 <button class="btn modal_button">Yönlendir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-lg-2 col-md-2 padding_col">
+        <button class="btn btn-back" ng-click="geri('open')">
+          <span class="btn-label">
+            <i class="material-icons">keyboard_arrow_left</i>
+          </span>Geri<div class="ripple-container"></div>
+        </button>
+      </div>
+
+      <div class="col-lg-8 col-md-12 padding_col">
+         <div class="card">
+           <div class="card-header">
+             <div class="img-content png">
+                <img src="img/bos.png">
+              </div>
+             <h4 class="title">Tahsilat Talepleri</h4>
+           </div>
+           <div class="card-content table-responsive">
+             <table class="table table-hover">
+               <thead class="text-warning">
+                 <tr>
+                   <th>Müşteri</th>
+                   <th>Tahsilat Günü</th>
+                   <th>VGB Günü</th>
+                   <th>Yönlendir</th>
+                   <th>Ödeme</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>ABDULLAH EREN-KADIKÖY AND.</td>
+                   <td>25.12.2017</td>
+                   <td>1.500 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   <td><button class="btn" data-toggle="modal" data-target="#myModal">Yönlendir</button></td>
+                   <td><button class="btn" ng-click="payment()">Ödeme Bilgileri</button></td>
+                 </tr>
+                 <tr>
+                   <td>AKMAR GIDA İNŞ. TEKS</td>
+                   <td>25.12.2017</td>
+                   <td>850 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   <td><button class="btn">Yönlendir</button></td>
+                   <td><button class="btn" ng-click="payment()">Ödeme Bilgileri</button></td>
+                 </tr>
+                 <tr>
+                   <td>YUSUF DEMİR_DEMİR GIDA</td>
+                   <td>25.12.2017</td>
+                   <td>1.200 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   <td><button class="btn">Yönlendir</button></td>
+                   <td><button class="btn" ng-click="payment()">Ödeme Bilgileri</button></td>
+                 </tr>
+                 <tr>
+                   <td>MODERN RESTORANT</td>
+                   <td>26.12.2017</td>
+                   <td>123 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   <td><button class="btn">Yönlendir</button></td>
+                   <td><button class="btn" ng-click="payment()">Ödeme Bilgileri</button></td>
+                 </tr>
+                 <tr>
+                   <td>BY OTELL</td>
+                   <td>27.12.2017</td>
+                   <td>55 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   <td><button class="btn">Yönlendir</button></td>
+                   <td><button class="btn" ng-click="payment()">Ödeme Bilgileri</button></td>
+                 </tr>
+               </tbody>
+             </table>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-lg-2 col-md-2 padding_col"></div>
+
+      </div>
+      <!--Tahislat Talepleri Kapanış  -->
+
+      <!--Ödeme Bilgileri  -->
+      <div class="row row-top bounceInDown" style="animation-duration:1s;" ng-show="payment_table">
+
+        <div class="col-lg-2 col-md-2 padding_col">
+          <button class="btn btn-back" ng-click="backblack('open')">
+            <span class="btn-label">
+              <i class="material-icons">keyboard_arrow_left</i>
+            </span>Geri<div class="ripple-container"></div>
+          </button>
+        </div>
+
+        <div class="col-lg-8 col-md-12 padding_col">
+           <div class="card">
+             <div class="card-header">
+               <div class="img-content png">
+                  <img src="img/money.png">
+                </div>
+               <h4 class="title">Ödeme Bilgileri</h4>
+             </div>
+             <div class="card-content table-responsive borderNone">
+               <table class="table table-hover">
+                 <thead class="text-warning">
+                   <tr>
+                     <th>Tahislat Tipi</th>
+                     <th>Ödeme</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>POS</td>
+                     <td>1.000 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   </tr>
+                   <tr>
+                     <td>NAKİT</td>
+                     <td>500 <i class="fa fa-try" aria-hidden="true"></i></td>
+                   </tr>
+                 </tbody>
+               </table>
+               <button class="btn">TOV Hesapla</button>
+               <table class="table table-hover" style="margin-top: 15px;">
+                 <thead class="text-warning">
+                   <tr>
+                     <th>Tahislatın Ort. Vadesi</th>
+                     <th>Carinin Ort. Vadesi</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>32.Gün</td>
+                     <td>25.Gün</td>
+                   </tr>
+                 </tbody>
+               </table>
+               <button class="btn">Tahsilat Kaydet</button>
+               <button class="btn">Tahsilat Alınamadı</button>
+               <textarea placeholder="Açıklama"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-2 padding_col"></div>
+
+      </div>
+      <!--Ödeme Bilgileri Kapanış  -->
+
+  </body>
+</html>
